@@ -20,3 +20,8 @@
 * webpack-dev-server 在编译之后不会写入到任何输出文件。而是将 bundle 文件保留在内存中，然后将它们 serve 到 server 中，就好像它们是挂载在 server 根路径上的真实文件一样。如果你的页面希望在其他不同路径中找到 bundle 文件，则可以通过 dev server 配置中的 publicPath 选项进行修改
 * HtmlWebpackPlugin 会默认生成 index.html 文件，以关联动态生成的可能具有hash值的js文件，且可以进行针对性的动态赋值到index.html中，一般用于单页面应用
 * externals: {"react": "React","react-dom": "ReactDOM"} 这是 https://www.tslang.cn/docs/handbook/react-&-webpack.html 中的webpack配置的一段，这里我们是将react及react-dom打包至js中，如果加上这段话，意思是防止将react,react-dom这些 import 的包(package)打包到 bundle 中，而需要在html中以CDN表示
+
+
+# V2.0
+
+> 引入一个基础组件（button）示例
