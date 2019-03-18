@@ -33,7 +33,7 @@ module.exports = {
     // dependencies, which allows browsers to cache those libraries between builds.
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/index.html'),
+            template: path.resolve(__dirname, './public/index.html'),
             filename: path.resolve(__dirname, './dist/index.html'),
         })
     ]
