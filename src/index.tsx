@@ -1,10 +1,9 @@
 
-import * as React from 'react';
-import * as ReactDom from 'react-dom';
-
-import Button from './components/Button';
+import React from 'react';
+import ReactDom from 'react-dom';
+import Demos from './demos';
 
 ReactDom.render(
-    <Button name="你好"></Button>,
+    <Demos></Demos>,
     document.getElementById('root')
 );

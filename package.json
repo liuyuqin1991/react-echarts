@@ -29,10 +29,17 @@
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
+    "@types/classnames": "^2.2.7",
+    "@types/node": "^11.11.3",
     "@types/react": "^16.8.8",
     "@types/react-dom": "^16.8.2",
+    "classnames": "^2.2.6",
+    "css-loader": "^2.1.1",
+    "echarts": "^4.1.0",
+    "node-sass": "^4.11.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "sass-loader": "^7.1.0",
     "typescript": "^3.3.3333"
   }
 }

@@ -25,3 +25,22 @@
 # V2.0
 
 > 引入一个基础组件（button）示例
+
+# V3.0
+
+> 引入echarts组件，包含折线图，柱状图，饼状图，地图，散点图
+
+## 步骤
+
+1. 安装echarts：`npm install echarts`
+2. 安装classnames：`npm install classnames` 和 `install @types/classnames`
+3. 安装sass：`npm install node-sass`
+4. 安装css，sass的loader：`npm install css-loader` 和 `npm install sass-loader`
+5. 安装node：`npm install @types/node`
+6. 编辑tsconfig.json（见文件）
+7. 编辑webpack.config.js（见文件）
+8. 编写组件代码
+
+## 心得
+
+* 启动报错：TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead，在react类中，都需要引入import React from 'react'，而不能只单单在extends的类中引入;
