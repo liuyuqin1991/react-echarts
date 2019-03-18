@@ -1,4 +1,4 @@
-# React-for-echarts 
+# react-for-echarts 
 > react封装echarts的组件库，每个分支代表持续的里程碑
 
 ## 分支介绍
