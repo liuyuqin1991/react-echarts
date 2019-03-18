@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        //是否生成相应的 .map文件。
+        "sourceMap": true,
+        //在表达式和声明上有隐含的any类型时是否报错。
+        "noImplicitAny": false,
+        // "module": "commonjs",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+        "target": "es5",
+        //TypeScript具有三种JSX模式：preserve，react和react-native。 这些模式只在代码生成阶段起作用 - 类型检查并不受影响。 
+        //preserve模式下生成代码中会保留JSX以供后续的转换操作使用（比如：Babel）。 另外，输出文件会带有.jsx扩展名。 
+        //react模式会生成React.createElement，在使用前不需要再进行转换操作了，输出文件的扩展名为.js。 
+        //react-native相当于preserve，它也保留了所有的JSX，但是输出文件的扩展名是.js
+        "jsx": "react"
+    },
+    //包含
+    "include": [
+        "./src/**/*"
+    ],
+    //不包含 
+    "exclude": [
+        "node_modules"
+    ]
+}
