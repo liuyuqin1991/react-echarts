@@ -1,9 +1,7 @@
+import ScatterCharts from './components/scatter';
+import MapCharts from './components/map';
+import BarCharts from './components/bar';
+import LineCharts from './components/line';
+import PieCharts from './components/pie';
 
-import React from 'react';
-import ReactDom from 'react-dom';
-import Demos from './demos';
-
-ReactDom.render(
-    <Demos></Demos>,
-    document.getElementById('root')
-);
+export { ScatterCharts, MapCharts, BarCharts, LineCharts, PieCharts }

@@ -1,6 +1,6 @@
 import React from 'react';
 import BaseComponent from './base-components'
-import { BaseChartsProp, default as BaseCharts } from './base-charts/base';
+import { BaseChartsProp, BaseCharts } from './base-charts/base';
 
 interface BarChartsProp extends BaseChartsProp {
     //必选（通用）：格式：[{name:"北京",data:[10,20,30,40]},{name:"湖北",data:[30,50,70,90]}]

@@ -1,6 +1,6 @@
 import React from 'react';
 import BaseComponent from './base-components'
-import { BaseChartsProp, default as BaseCharts } from './base-charts/base';
+import { BaseChartsProp, BaseCharts } from './base-charts/base';
 
 interface ScatterChartsProp extends BaseChartsProp {
     //必选（通用）：格式：[{name:"series1",data:[{name:"节点名称",value[1,2]},{name:"节点名称",value:[3,4]},{...},{...}]

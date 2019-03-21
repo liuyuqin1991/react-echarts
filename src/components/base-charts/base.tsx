@@ -2,7 +2,7 @@ import BaseComponent from '../base-components'
 import React from 'react';
 const Echarts = require('echarts');
 
-export interface BaseChartsProp {
+interface BaseChartsProp {
     //必选（通用）：id，charts组件id，必须值
     id: string
     //可选（通用）：图表的宽和高，不填默认长宽100%
@@ -106,4 +106,4 @@ class BaseCharts extends BaseComponent<BaseChartsProp> {
     }
 }
 
-export default BaseCharts;
+export { BaseCharts, BaseChartsProp };

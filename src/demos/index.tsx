@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 import BaseComponent from '../components/base-components';
 import ScatterCharts from '../components/scatter';
 import MapCharts from '../components/map';
@@ -411,3 +412,8 @@ class Demos extends BaseComponent<DemoProps, DemoState> {
 }
 
 export default Demos;
+
+ReactDom.render(
+    <Demos></Demos>,
+    document.getElementById('root')
+);

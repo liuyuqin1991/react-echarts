@@ -1,6 +1,6 @@
 import React from 'react';
 import BaseComponent from './base-components'
-import { BaseChartsProp, default as BaseCharts } from './base-charts/base';
+import { BaseChartsProp, BaseCharts } from './base-charts/base';
 
 interface PieChartsProp extends BaseChartsProp {
     //必选（通用）：格式：[{name:"省份排行饼状图",data:[{name:"湖北",value:10},{name:"北京",value:40}]]

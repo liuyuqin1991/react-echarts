@@ -1,6 +1,6 @@
 import React from 'react';
 import BaseComponent from './base-components'
-import { BaseChartsProp, default as BaseCharts } from './base-charts/base';
+import { BaseChartsProp, BaseCharts } from './base-charts/base';
 
 interface MapChartsProp extends BaseChartsProp {
     //必须：数据对象

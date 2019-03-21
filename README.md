@@ -7,7 +7,7 @@
 1. 创建项目文件夹
 2. 安装git：`git init`，创建.gitignore文件
 3. 安装npm：`npm init`，自动创建package.json文件
-4. 安装webpack相关：`npm install --save-dev webpack` 和 `npm install --save-dev webpack-cli` 和 `npm install --save-dev webpack-dev-server` 和 `npm install --save-dev html-webpack-plugin`，创建webpack.config.js文件，package.json加入start命令（见文件）
+4. 安装webpack相关：`npm install --save-dev webpack` 和 `npm install --save-dev webpack-cli` 和 `npm install --save-dev webpack-dev-server` 和 `npm install --save-dev html-webpack-plugin` 和 `npm install --save-dev mini-css-extract-plugin`，创建webpack.config.js文件，package.json加入start命令（见文件）
 5. 安装react： `npm install --save react` 和 `npm insatll --save react-dom` 和 `npm install --save @types/react` 和 `npm insatll --save @types/react-dom`
 6. 安装typescript `npm install --save typescript`，创建tsconfig.json文件
 7. 安装typescript预编译器ts-loader `npm install ts-loader --save-dev`
