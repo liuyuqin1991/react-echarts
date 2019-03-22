@@ -6,7 +6,9 @@ module.exports = {
     entry: path.resolve(__dirname, "./src/index.tsx"),
     output: {
         filename: "index.js",
-        path: path.resolve(__dirname, './dist')
+        path: path.resolve(__dirname, './dist'),
+        libraryTarget: 'umd',
+        umdNamedDefine: true
     },
     // Enable sourcemaps for debugging webpack's output.
     devtool: 'inline-source-map',
@@ -23,8 +25,8 @@ module.exports = {
         rules: [
             // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
             {
-                test: /\.tsx?$/,
-                use: 'ts-loader'
+                test: /\.(tsx|ts)$/,
+                use: ['ts-loader']
             },
             {
                 test: /\.(scss|css)$/,

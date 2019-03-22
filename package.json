@@ -1,6 +1,6 @@
 {
   "name": "@liuyuqin/react-echarts",
-  "version": "0.4.8",
+  "version": "1.0.1",
   "description": "react封装的echarts组件",
   "main": "dist/index.js",
   "scripts": {
