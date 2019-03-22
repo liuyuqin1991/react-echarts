@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        //是否生成相应的 .map文件。
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "declaration": true,
+        "outDir": "./dist",
+    },
+    //包含
+    "include": [
+        "./src/**/*"
+    ],
+    //不包含 
+    "exclude": [
+        "node_modules",
+        "./src/demos/*"
+    ]
+}
