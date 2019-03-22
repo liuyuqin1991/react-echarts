@@ -2,16 +2,47 @@
 
 > react封装echarts的图表组件库，使用ES6+typescript
 
-示例
+## 示例
 
 ### 折线图
 
-![]()
+![折线图](https://github.com/liuyuqin1991/react-for-echarts/blob/master/md-images/line.png)
 
-## Quick Overview
+### 柱状图
+
+![柱状图](https://github.com/liuyuqin1991/react-for-echarts/blob/master/md-images/bar.png)
+
+### 饼图
+
+![饼图](https://github.com/liuyuqin1991/react-for-echarts/blob/master/md-images/pie.png)
+
+### 地图
+
+![地图](https://github.com/liuyuqin1991/react-for-echarts/blob/master/md-images/map.png)
+
+### 散点图
+
+![散点图](https://github.com/liuyuqin1991/react-for-echarts/blob/master/md-images/scatter.png)
+
+
+## 安装
 
 `npm install @liuyuqin/react-echarts`
 
-## Option
+## 使用
 
-### 折线图
+`import {LineCharts ....} from '@liuyuqin/react-echarts';`
+
+## 示例
+
+[见demo代码](https://github.com/liuyuqin1991/react-for-echarts/blob/master/src/demos/index.tsx)
+
+
+## 其他
+
+[版本分支升级概述](https://github.com/liuyuqin1991/react-for-echarts/blob/master/CHANGELOG.md)
+
+## License
+
+@liuyuqin/react-echarts is open source software licensed as MIT.
+
