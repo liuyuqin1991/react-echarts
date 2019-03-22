@@ -2,7 +2,7 @@
 
 > react webpack typescript集成
 
-## 步骤
+## 框架搭建步骤
 
 1. 创建项目文件夹
 2. 安装git：`git init`，创建.gitignore文件
