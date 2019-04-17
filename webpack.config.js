@@ -1,9 +1,13 @@
 const path = require('path');
+const argv = require('yargs').argv;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+//入口路径
+const entryPath = argv.mode == 'development' ? "./src/demos/index.tsx" : "./src/index.tsx";
+
 module.exports = {
-    entry: path.resolve(__dirname, "./src/index.tsx"),
+    entry: path.resolve(__dirname, entryPath),
     output: {
         filename: "index.js",
         path: path.resolve(__dirname, './dist'),

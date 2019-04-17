@@ -7,6 +7,8 @@ interface BarChartsProp extends BaseChartsProp {
     seriesData: any
     //x轴数据，例如：['星期一', '星期二', '星期三', '星期四']
     xAxisData: Array<string>
+    //是否翻转
+    isReverse?: boolean
 }
 
 class BarCharts extends BaseComponent<BarChartsProp> {
@@ -55,6 +57,9 @@ class BarCharts extends BaseComponent<BarChartsProp> {
             }
         }
         option.legend.data = legendData;
+        if (this.props.isReverse) {
+            option.yAxis.data = xAxisData;
+        }
         option.xAxis.data = xAxisData;
         return option;
     }

@@ -4,6 +4,7 @@ import BaseComponent from '../components/base-components';
 import ScatterCharts from '../components/scatter';
 import MapCharts from '../components/map';
 import BarCharts from '../components/bar';
+import BarRollingCharts from './special/bar-rolling';
 import LineCharts from '../components/line';
 import PieCharts from '../components/pie';
 import { templateScatter } from '../template/scatter';
@@ -20,6 +21,8 @@ interface DemoProps {
 interface DemoState {
     commonChartsData: Array<{ name: string, data: Array<number> }>,
     commonXAxisData: Array<string>,
+    reverseChartsData: Array<{ name: string, data: Array<number> }>,
+    reverseYAxisData: Array<string>,
     pieChartsData: Array<{ name: string, data: Array<{ name: string, value: number }> }>
     scatterChartData: Array<{ name: string, data: Array<{ name: string, value: Array<number> }> }>
     minPoint: { x: number, y: number },
@@ -38,6 +41,9 @@ class Demos extends BaseComponent<DemoProps, DemoState> {
             //折线图，柱状图数据
             commonChartsData: [{ name: "北京", data: [10, 80, 90, 40, 50, 70, 60] }, { name: "湖北", data: [20, 40, 80, 30, 30, 60, 40] }],
             commonXAxisData: ['03-01', '03-02', '03-03', '03-04', '03-05', '03-06', '03-07'],
+            //翻转折线图数据
+            reverseChartsData: [{ name: "2018年", data: [10, 80, 90, 40, 50, 70, 60, 20, 100] }],
+            reverseYAxisData: ['巴西', '印尼', '美国', '印度', '中国', '日本', '韩国', '新加坡', '俄罗斯'],
             //饼状图数据
             pieChartsData: [{ name: "", data: [{ name: "湖北", value: 10 }, { name: "北京", value: 40 }] }],
             //散点图数据
@@ -172,6 +178,38 @@ class Demos extends BaseComponent<DemoProps, DemoState> {
         }
         option.xAxis.name = "(元)";
         option.yAxis.name = "(个)";
+        option.series = series;
+        return option;
+    }
+
+    setBarReverseOption(): any {
+        let option: any = templateBar;
+        let series = [];
+        const itemColor = ['#0073E6', '#FC5554', '#FFB45A', '#6B6BB9'];
+        for (let i = 0; i < this.state.reverseChartsData.length; i++) {
+            let s = {
+                type: 'bar',
+                barWidth: '15px',
+                barCategoryGap: '10px',
+                itemStyle: {
+                    color: itemColor[i]
+                }
+            }
+            series.push(s);
+        }
+        option.xAxis = {
+            type: 'value',
+            boundaryGap: [0, '10%']
+        };
+        option.yAxis = {
+            type: 'category',
+        }
+        option.grid = {
+            left: '6%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        };
         option.series = series;
         return option;
     }
@@ -339,6 +377,17 @@ class Demos extends BaseComponent<DemoProps, DemoState> {
                         setOption={this.setBarDifficultOption.bind(this)}
                         seriesData={this.state.commonChartsData}
                         xAxisData={this.state.commonXAxisData} />
+                    <div className="title">柱状图翻转（包含series的option配置）</div>
+                    <BarCharts id="barCharts-reverse"
+                        width={Demos.chartsWidth}
+                        height={Demos.chartsHeight}
+                        isReverse={true}
+                        tooltipFormatter={this.setAxisTooltipFormatter.bind(this)}
+                        setOption={this.setBarReverseOption.bind(this)}
+                        seriesData={this.state.reverseChartsData}
+                        xAxisData={this.state.reverseYAxisData} />
+                    <div className="title">柱状图滚动翻转（包含series的option配置）</div>
+                    <BarRollingCharts />
                 </div>
                 <div className="charts scatter">
                     <div className="title">散点图（无option配置）</div>
@@ -368,13 +417,13 @@ class Demos extends BaseComponent<DemoProps, DemoState> {
                         regionType="country"
                         regionName="中国"
                         seriesData={this.state.mapChartsDataByChina} />
-                    {/* <div className="title">湖北省地图（无option配置）</div>
+                    <div className="title">湖北省地图（无option配置）</div>
                     <MapCharts id="mapChartsByHubei-easy"
                         width={Demos.chartsWidth}
                         height={Demos.chartsHeight}
                         regionType="province"
                         regionName="湖北"
-                        seriesData={this.state.mapChartsDataByHubei} /> */}
+                        seriesData={this.state.mapChartsDataByHubei} />
                     <div className="title">全国地图（除series的option静态配置）</div>
                     <MapCharts id="mapChartsByChina-normal"
                         width={Demos.chartsWidth}
