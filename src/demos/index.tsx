@@ -5,6 +5,7 @@ import ScatterCharts from '../components/scatter';
 import MapCharts from '../components/map';
 import BarCharts from '../components/bar';
 import BarRollingCharts from './special/bar-rolling';
+import BarRollingTwoAxisCharts from './special/bar-rolling-two-axis';
 import LineCharts from '../components/line';
 import PieCharts from '../components/pie';
 import { templateScatter } from '../template/scatter';
@@ -356,6 +357,8 @@ class Demos extends BaseComponent<DemoProps, DemoState> {
                         xAxisData={this.state.commonXAxisData} />
                 </div>
                 <div className="charts bar">
+                    <div className="title">柱状图自动滚动翻转（双Axis配置）</div>
+                    <BarRollingTwoAxisCharts />
                     <div className="title">柱状图（无option配置）</div>
                     <BarCharts id="barCharts-easy"
                         width={Demos.chartsWidth}
@@ -386,7 +389,7 @@ class Demos extends BaseComponent<DemoProps, DemoState> {
                         setOption={this.setBarReverseOption.bind(this)}
                         seriesData={this.state.reverseChartsData}
                         xAxisData={this.state.reverseYAxisData} />
-                    <div className="title">柱状图滚动翻转（包含series的option配置）</div>
+                    <div className="title">柱状图自动滚动翻转（包含series的option配置）</div>
                     <BarRollingCharts />
                 </div>
                 <div className="charts scatter">
