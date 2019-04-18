@@ -10,7 +10,13 @@
 
 ### 柱状图
 
-![柱状图](https://github.com/liuyuqin1991/react-for-echarts/blob/master/md-images/bar.png)
+* 基本柱状图
+
+![基本柱状图](https://github.com/liuyuqin1991/react-for-echarts/blob/master/md-images/bar.png)
+
+* 自动循环滚动翻转柱状图
+
+![自动循环滚动翻转柱状图](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-rolling.gif)
 
 ### 饼图
 
