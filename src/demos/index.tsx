@@ -378,7 +378,7 @@ class Demos extends BaseComponent<DemoProps, DemoState> {
                         setOption={this.setBarDifficultOption.bind(this)}
                         seriesData={this.state.commonChartsData}
                         xAxisData={this.state.commonXAxisData} />
-                    <div className="title">柱状图翻转（包含series的option配置）</div>
+                    <div className="title">翻转柱状图（包含series的option配置）</div>
                     <BarCharts id="barCharts-reverse"
                         width={Demos.chartsWidth}
                         height={Demos.chartsHeight}
@@ -387,9 +387,9 @@ class Demos extends BaseComponent<DemoProps, DemoState> {
                         setOption={this.setBarReverseOption.bind(this)}
                         seriesData={this.state.reverseChartsData}
                         xAxisData={this.state.reverseYAxisData} />
-                    <div className="title">柱状图自动滚动翻转（单Axis配置）</div>
+                    <div className="title">自动滚动翻转柱状图（单axis）</div>
                     <BarRollingCharts />
-                    <div className="title">柱状图自动滚动翻转（双Axis配置）</div>
+                    <div className="title">自动滚动翻转柱状图（双axis）</div>
                     <BarRollingTwoAxisCharts />
                 </div>
                 <div className="charts scatter">

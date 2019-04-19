@@ -59,6 +59,10 @@
 
 `import {LineCharts ....} from '@liuyuqin/react-echarts';`
 
+## 二次开发项目运行
+
+`npm run start`
+
 ## 示例
 
 [见demo代码](https://github.com/liuyuqin1991/react-for-echarts/blob/master/src/demos/index.tsx)
