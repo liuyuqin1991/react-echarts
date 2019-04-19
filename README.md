@@ -20,11 +20,11 @@
 
 ![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-rolling.png)
 
-* 自动滚动翻转柱状图（单axis）
+* 自动滚动翻转柱状图（单axis）(特殊图表，组件不适用，单独开发)
 
 ![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-automatic-rolling-one-axis.gif)
 
-* 自动滚动翻转柱状图（双axis）
+* 自动滚动翻转柱状图（双axis）(特殊图表，组件不适用，单独开发)
 
 ![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-automatic-rolling-two-axis.gif)
 
