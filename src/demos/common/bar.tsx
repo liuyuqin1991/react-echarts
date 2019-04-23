@@ -1,23 +1,21 @@
 import BaseComponent from '../../components/base-components'
 import React from 'react';
 import BarCharts from '../../components/bar';
-import { templateBar } from '../../template/bar';
+import { templateBar } from '../template/bar';
 
 interface Props {
-
+    width?: string
+    height?: string
 }
 
 interface State {
-    commonChartsData: Array<{ name: string, data: Array<number> }>,
-    commonXAxisData: Array<string>,
-    reverseChartsData: Array<{ name: string, data: Array<number> }>,
-    reverseYAxisData: Array<string>,
+    commonChartsData: Array<{ name: string, data: Array<number> }>
+    commonXAxisData: Array<string>
+    reverseChartsData: Array<{ name: string, data: Array<number> }>
+    reverseYAxisData: Array<string>
 }
 
 class CommonBar extends BaseComponent<Props, State> {
-
-    chartsWidth = "400px";
-    chartsHeight = "300px";
 
     constructor(props: Props) {
         super(props);
@@ -105,29 +103,29 @@ class CommonBar extends BaseComponent<Props, State> {
             <div className="common-bar">
                 <div className="title">基本图表-柱状图（无option配置）</div>
                 <BarCharts id="barCharts-easy"
-                    width={this.chartsWidth}
-                    height={this.chartsHeight}
+                    width={this.props.width}
+                    height={this.props.height}
                     seriesData={this.state.commonChartsData}
                     xAxisData={this.state.commonXAxisData} />
                 <div className="title">基本图表-（除series的静态option配置）</div>
                 <BarCharts id="barCharts-normal"
-                    width={this.chartsWidth}
-                    height={this.chartsHeight}
+                    width={this.props.width}
+                    height={this.props.height}
                     setOption={this.setBarNormalOption.bind(this)}
                     seriesData={this.state.commonChartsData}
                     xAxisData={this.state.commonXAxisData} />
                 <div className="title">基本图表-（包含series的option配置）</div>
                 <BarCharts id="barCharts-difficult"
-                    width={this.chartsWidth}
-                    height={this.chartsHeight}
+                    width={this.props.width}
+                    height={this.props.height}
                     tooltipFormatter={this.setAxisTooltipFormatter.bind(this)}
                     setOption={this.setBarDifficultOption.bind(this)}
                     seriesData={this.state.commonChartsData}
                     xAxisData={this.state.commonXAxisData} />
                 <div className="title">基本图表-翻转柱状图（包含series的option配置）</div>
                 <BarCharts id="barCharts-reverse"
-                    width={this.chartsWidth}
-                    height={this.chartsHeight}
+                    width={this.props.width}
+                    height={this.props.height}
                     isReverse={true}
                     tooltipFormatter={this.setAxisTooltipFormatter.bind(this)}
                     setOption={this.setBarReverseOption.bind(this)}

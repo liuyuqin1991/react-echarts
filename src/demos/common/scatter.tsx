@@ -1,22 +1,20 @@
 import BaseComponent from '../../components/base-components'
 import React from 'react';
 import ScatterCharts from '../../components/scatter';
-import { templateScatter } from '../../template/scatter';
+import { templateScatter } from '../template/scatter';
 
 interface Props {
-
+    width?: string
+    height?: string
 }
 
 interface State {
     scatterChartData: Array<{ name: string, data: Array<{ name: string, value: Array<number> }> }>
-    minPoint: { x: number, y: number },
-    maxPoint: { x: number, y: number },
+    minPoint: { x: number, y: number }
+    maxPoint: { x: number, y: number }
 }
 
 class CommonScatter extends BaseComponent<Props, State> {
-
-    chartsWidth = "400px";
-    chartsHeight = "300px";
 
     constructor(props: Props) {
         super(props);
@@ -138,19 +136,19 @@ class CommonScatter extends BaseComponent<Props, State> {
             <div className="common-scatter">
                 <div className="title">散点图（无option配置）</div>
                 <ScatterCharts id="scatterCharts-easy"
-                    width={this.chartsWidth}
-                    height={this.chartsHeight}
+                    width={this.props.width}
+                    height={this.props.height}
                     seriesData={this.state.scatterChartData} />
                 <div className="title">散点图（除series外的静态option配置）</div>
                 <ScatterCharts id="scatterCharts-normal"
-                    width={this.chartsWidth}
-                    height={this.chartsHeight}
+                    width={this.props.width}
+                    height={this.props.height}
                     setOption={this.setScatterNormalOption.bind(this)}
                     seriesData={this.state.scatterChartData} />
                 <div className="title">散点图（包含series的option配置）</div>
                 <ScatterCharts id="scatterCharts-difficult"
-                    width={this.chartsWidth}
-                    height={this.chartsHeight}
+                    width={this.props.width}
+                    height={this.props.height}
                     setOption={this.setScatterDifficultOption.bind(this)}
                     tooltipFormatter={this.setScatterTooltipFormatter()}
                     seriesData={this.state.scatterChartData} />

@@ -1,10 +1,11 @@
 import BaseComponent from '../../components/base-components'
 import React from 'react';
 import MapCharts from '../../components/map';
-import { templateMap } from '../../template/map';
+import { templateMap } from '../template/map';
 
 interface Props {
-
+    width?: string
+    height?: string
 }
 
 interface State {
@@ -13,9 +14,6 @@ interface State {
 }
 
 class CommonMap extends BaseComponent<Props, State> {
-
-    chartsWidth = "400px";
-    chartsHeight = "300px";
 
     constructor(props: Props) {
         super(props);
@@ -102,30 +100,30 @@ class CommonMap extends BaseComponent<Props, State> {
             <div className="common-map">
                 <div className="title">全国地图（无option配置）</div>
                 <MapCharts id="mapChartsByChina-easy"
-                    width={this.chartsWidth}
-                    height={this.chartsHeight}
+                    width={this.props.width}
+                    height={this.props.height}
                     regionType="country"
                     regionName="中国"
                     seriesData={this.state.mapChartsDataByChina} />
                 <div className="title">湖北省地图（无option配置）</div>
                 <MapCharts id="mapChartsByHubei-easy"
-                    width={this.chartsWidth}
-                    height={this.chartsHeight}
+                    width={this.props.width}
+                    height={this.props.height}
                     regionType="province"
                     regionName="湖北"
                     seriesData={this.state.mapChartsDataByHubei} />
                 <div className="title">全国地图（除series的option静态配置）</div>
                 <MapCharts id="mapChartsByChina-normal"
-                    width={this.chartsWidth}
-                    height={this.chartsHeight}
+                    width={this.props.width}
+                    height={this.props.height}
                     setOption={this.setMapNormalOption.bind(this)}
                     regionType="country"
                     regionName="中国"
                     seriesData={this.state.mapChartsDataByChina} />
                 <div className="title">全国地图（包含加载地图后对option再配置）</div>
                 <MapCharts id="mapChartsByChina-difficult"
-                    width={this.chartsWidth}
-                    height={this.chartsHeight}
+                    width={this.props.width}
+                    height={this.props.height}
                     setOption={this.setMapNormalOption.bind(this)}
                     setOptionAfterLoadMap={this.setOptionAfterLoadMap.bind(this)}
                     regionType="country"

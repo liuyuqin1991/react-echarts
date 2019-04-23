@@ -1,21 +1,19 @@
 import BaseComponent from '../../components/base-components'
 import React from 'react';
 import LineCharts from '../../components/line';
-import { templateLine } from '../../template/line';
+import { templateLine } from '../template/line';
 
 interface Props {
-
+    width?: string
+    height?: string
 }
 
 interface State {
-    commonChartsData: Array<{ name: string, data: Array<number> }>,
-    commonXAxisData: Array<string>,
+    commonChartsData: Array<{ name: string, data: Array<number> }>
+    commonXAxisData: Array<string>
 }
 
 class CommonLine extends BaseComponent<Props, State> {
-
-    chartsWidth = "400px";
-    chartsHeight = "300px";
 
     constructor(props: Props) {
         super(props);
@@ -74,21 +72,21 @@ class CommonLine extends BaseComponent<Props, State> {
             <div className="common-line">
                 <div className="title">折线图（无option配置）</div>
                 <LineCharts id="lineCharts-easy"
-                    width={this.chartsWidth}
-                    height={this.chartsHeight}
+                    width={this.props.width}
+                    height={this.props.height}
                     seriesData={this.state.commonChartsData}
                     xAxisData={this.state.commonXAxisData} />
                 <div className="title">折线图（除series的静态option配置）</div>
                 <LineCharts id="lineCharts-normal"
-                    width={this.chartsWidth}
-                    height={this.chartsHeight}
+                    width={this.props.width}
+                    height={this.props.height}
                     setOption={this.setLineNormalOption.bind(this)}
                     seriesData={this.state.commonChartsData}
                     xAxisData={this.state.commonXAxisData} />
                 <div className="title">折线图（包含series的option配置）</div>
                 <LineCharts id="lineCharts-difficult"
-                    width={this.chartsWidth}
-                    height={this.chartsHeight}
+                    width={this.props.width}
+                    height={this.props.height}
                     tooltipFormatter={this.setAxisTooltipFormatter.bind(this)}
                     setOption={this.setLineDifficultOption.bind(this)}
                     seriesData={this.state.commonChartsData}

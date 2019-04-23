@@ -2,12 +2,17 @@ import BaseComponent from '../../components/base-components'
 import React from 'react';
 const Echarts = require('echarts');
 
-class BarRollingTwoAxisCharts extends BaseComponent {
+interface Props {
+    width?: string
+    height?: string
+}
+
+class BarRollingTwoAxisCharts extends BaseComponent<Props> {
 
     start: number = 100
     end: number = 50
 
-    constructor(props: any) {
+    constructor(props: Props) {
         super(props);
     }
 
@@ -119,7 +124,7 @@ class BarRollingTwoAxisCharts extends BaseComponent {
 
     render() {
         return (
-            <div id='bar-rolling-two-axis' style={{ width: '400px', height: '300px' }}></div>
+            <div id='bar-rolling-two-axis' style={{ width: this.props.width || '400px', height: this.props.height || '300px' }}></div>
         );
     }
 }

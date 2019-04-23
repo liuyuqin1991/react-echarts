@@ -15,13 +15,18 @@ interface Props {
 }
 
 interface State {
-    pieChartsData: Array<{ name: string, data: Array<{ name: string, value: number }> }>
+    chartsWidth: string
+    chartsHeight: string
 }
 
 class Demos extends BaseComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
+        this.state = {
+            chartsWidth: "400px",
+            chartsHeight: "300px",
+        }
     }
 
 
@@ -44,23 +49,23 @@ class Demos extends BaseComponent<Props, State> {
                 </div>
                 <div className="content-charts">
                     <div className="charts line">
-                        <CommonLine />
+                        <CommonLine width={this.state.chartsWidth} height={this.state.chartsHeight} />
                     </div>
                     <div className="charts bar">
-                        <CommonBar />
+                        <CommonBar width={this.state.chartsWidth} height={this.state.chartsHeight} />
                         <div className="title">特殊图表-自动滚动翻转柱状图（单axis）</div>
-                        <BarRollingCharts />
+                        <BarRollingCharts width={this.state.chartsWidth} height={this.state.chartsHeight} />
                         <div className="title">特殊图表-自动滚动翻转柱状图（双axis）</div>
-                        <BarRollingTwoAxisCharts />
+                        <BarRollingTwoAxisCharts width={this.state.chartsWidth} height={this.state.chartsHeight} />
                     </div>
                     <div className="charts scatter">
-                        <CommonScatter />
+                        <CommonScatter width={this.state.chartsWidth} height={this.state.chartsHeight} />
                     </div>
                     <div className="charts map">
-                        <CommonMap />
+                        <CommonMap width={this.state.chartsWidth} height={this.state.chartsHeight} />
                     </div>
                     <div className="charts pie">
-                        <CommonPie />
+                        <CommonPie width={this.state.chartsWidth} height={this.state.chartsHeight} />
                     </div>
                 </div>
             </div>
