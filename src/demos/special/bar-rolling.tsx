@@ -101,7 +101,11 @@ class BarRollingCharts extends BaseComponent<Props> {
 
     render() {
         return (
-            <div id='bar-rolling' style={{ width: this.props.width || '400px', height: this.props.height || '300px' }}></div>
+            <div>
+                <div className="title">特殊图表-自动滚动翻转柱状图（单axis）</div>
+                <div id='bar-rolling' style={{ width: this.props.width || '400px', height: this.props.height || '300px' }}></div>
+            </div>
+
         );
     }
 }

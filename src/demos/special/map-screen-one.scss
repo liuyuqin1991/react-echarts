@@ -1,0 +1,109 @@
+$c-primary : rgba(212, 42, 30, 1);
+$c-primary-2 : rgba(212, 42, 30, 0.2);
+$circlePointRadius: 100px;
+$circleRingRadius : 800px;
+$circleOffest: -333px;
+
+.map-screen-one {
+    width: 950px;
+    height: 800px;
+    background-color: #131233;
+    position: relative;
+
+    .box {
+        position: absolute;
+        width: $circlePointRadius;
+        height: $circlePointRadius;
+        border-radius: 50%;
+        background-color: $c-primary-2;
+        left: 44%;
+        top: 46%;
+    }
+
+    .ring {
+        position: absolute;
+        width: $circleRingRadius;
+        height: $circleRingRadius;
+        border-radius: 50%;
+        border: 3px solid $c-primary;
+        left: $circleOffest;
+        top: $circleOffest;
+        box-shadow: 0 0 130px 15px $c-primary inset;
+
+        &.inner-ring {
+            animation: circleAnimationIn 4s linear;
+            animation-iteration-count: infinite;
+        }
+
+        &.outer-ring {
+            animation: circleAnimationOut 4s linear;
+            animation-iteration-count: infinite;
+        }
+    }
+
+    .map-screen-one-charts {
+        position: absolute;
+    }
+
+    .label {
+        position: absolute;
+        color: #92A7FD;
+        bottom: 180px;
+        left: 40px;
+        font-size: 14px;
+    }
+}
+
+@keyframes circleAnimationOut {
+    0% {
+        transform: scale(0.0);
+        opacity: 0.0;
+    }
+
+    25% {
+        transform: scale(0.3);
+        opacity: 0.0;
+    }
+
+    50% {
+        transform: scale(0.5);
+        opacity: 0.4;
+    }
+
+    75% {
+        transform: scale(0.7);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.0;
+    }
+}
+
+@keyframes circleAnimationIn {
+    0% {
+        transform: scale(0.0);
+        opacity: 0.0;
+    }
+
+    25% {
+        transform: scale(0.3);
+        opacity: 0.0;
+    }
+
+    50% {
+        transform: scale(0.4);
+        opacity: 0.5;
+    }
+
+    75% {
+        transform: scale(0.5);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(0.6);
+        opacity: 0.0;
+    }
+}

@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import BaseComponent from '../components/base-components';
-import CommonBar from '../demos/common/bar';
-import CommonLine from '../demos/common/line';
-import CommonScatter from '../demos/common/scatter';
-import CommonMap from '../demos/common/map';
-import CommonPie from '../demos/common/pie';
+//引入基础图表高阶组件
+import CommonBar from './common/bar';
+import CommonLine from './common/line';
+import CommonScatter from './common/scatter';
+import CommonMap from './common/map';
+import CommonPie from './common/pie';
+//引入特殊图表高阶组件
 import BarRollingCharts from './special/bar-rolling';
 import BarRollingTwoAxisCharts from './special/bar-rolling-two-axis';
+import MapScreenOneCharts from './special/map-screen-one';
+
 import './index.scss';
 
 interface Props {
@@ -44,19 +48,16 @@ class Demos extends BaseComponent<Props, State> {
     render() {
         return (
             <div className="content">
-                <div className="content-tip">
-                    说明：基础图表可以直接使用组件，特殊图表不能直接使用组件，详情见示例
-                </div>
-                <div className="content-charts">
+                <header className="content-tip">
+                    说明：基础图表可以直接使用组件，特殊图表有些不能直接使用组件，详情见示例demo
+                </header>
+                <div className="title common">基础图表</div>
+                <section className="common-charts">
                     <div className="charts line">
                         <CommonLine width={this.state.chartsWidth} height={this.state.chartsHeight} />
                     </div>
                     <div className="charts bar">
                         <CommonBar width={this.state.chartsWidth} height={this.state.chartsHeight} />
-                        <div className="title">特殊图表-自动滚动翻转柱状图（单axis）</div>
-                        <BarRollingCharts width={this.state.chartsWidth} height={this.state.chartsHeight} />
-                        <div className="title">特殊图表-自动滚动翻转柱状图（双axis）</div>
-                        <BarRollingTwoAxisCharts width={this.state.chartsWidth} height={this.state.chartsHeight} />
                     </div>
                     <div className="charts scatter">
                         <CommonScatter width={this.state.chartsWidth} height={this.state.chartsHeight} />
@@ -67,7 +68,19 @@ class Demos extends BaseComponent<Props, State> {
                     <div className="charts pie">
                         <CommonPie width={this.state.chartsWidth} height={this.state.chartsHeight} />
                     </div>
-                </div>
+                </section>
+                <div className="title special">特殊图表</div>
+                <section className="special-charts">
+                    <div className="charts bar-rolling">
+                        <BarRollingCharts width={this.state.chartsWidth} height={this.state.chartsHeight} />
+                    </div>
+                    <div className="charts bar-rolling-two">
+                        <BarRollingTwoAxisCharts width={this.state.chartsWidth} height={this.state.chartsHeight} />
+                    </div>
+                    <div className="charts">
+                        <MapScreenOneCharts width="950px" height="800px" />
+                    </div>
+                </section>
             </div>
         );
     }
