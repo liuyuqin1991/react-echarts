@@ -12,12 +12,12 @@ $circleOffest: -333px;
 
     .box {
         position: absolute;
-        width: $circlePointRadius;
-        height: $circlePointRadius;
+        width: 1px;
+        height: 1px;
         border-radius: 50%;
         background-color: $c-primary-2;
-        left: 44%;
-        top: 46%;
+        left: 42%;
+        top: 42%;
     }
 
     .ring {
@@ -48,9 +48,61 @@ $circleOffest: -333px;
     .label {
         position: absolute;
         color: #92A7FD;
-        bottom: 180px;
         left: 40px;
         font-size: 14px;
+
+        &.gmv {
+            bottom: 175px;
+        }
+
+        &.store {
+            bottom: 110px;
+        }
+    }
+
+    .store-point-view {
+        position: absolute;
+        bottom: 85px;
+        left: 40px;
+        font-size: 14px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .level-label {
+            color: #92A7FD;
+            left: 40px;
+            font-size: 12px;
+            margin: 0 6px;
+        }
+
+        .store-point {
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: #3AFFFF;
+
+            &.point-1 {
+                width: 5px;
+                height: 5px;
+                animation: pulse 2s linear;
+                animation-iteration-count: infinite;
+            }
+
+            &.point-2 {
+                width: 8px;
+                height: 8px;
+            }
+
+            &.point-3 {
+                width: 11px;
+                height: 11px;
+            }
+
+            &.point-4 {
+                width: 14px;
+                height: 14px;
+            }
+        }
     }
 }
 
@@ -60,19 +112,24 @@ $circleOffest: -333px;
         opacity: 0.0;
     }
 
-    25% {
+    20% {
         transform: scale(0.3);
         opacity: 0.0;
     }
 
-    50% {
-        transform: scale(0.5);
+    40% {
+        transform: scale(0.55);
+        opacity: 0.3;
+    }
+
+    60% {
+        transform: scale(0.8);
         opacity: 0.4;
     }
 
-    75% {
-        transform: scale(0.7);
-        opacity: 0.6;
+    80% {
+        transform: scale(1);
+        opacity: 0.2;
     }
 
     100% {
@@ -87,23 +144,42 @@ $circleOffest: -333px;
         opacity: 0.0;
     }
 
-    25% {
-        transform: scale(0.3);
+    20% {
+        transform: scale(0.25);
         opacity: 0.0;
     }
 
-    50% {
+    40% {
         transform: scale(0.4);
         opacity: 0.5;
     }
 
-    75% {
-        transform: scale(0.5);
+    60% {
+        transform: scale(0.55);
         opacity: 0.6;
     }
 
+    80% {
+        transform: scale(0.7);
+        opacity: 0.4;
+    }
+
     100% {
-        transform: scale(0.6);
+        transform: scale(0.85);
         opacity: 0.0;
+    }
+}
+
+@keyframes pulse {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
     }
 }
