@@ -11,6 +11,7 @@ import CommonPie from './common/pie';
 import BarRollingCharts from './special/bar-rolling';
 import BarRollingTwoAxisCharts from './special/bar-rolling-two-axis';
 import MapScreenOneCharts from './special/map-screen-one';
+import PieGaugeCharts from './special/pie-gauge';
 
 import './index.scss';
 
@@ -71,14 +72,21 @@ class Demos extends BaseComponent<Props, State> {
                 </section>
                 <div className="title special">特殊图表</div>
                 <section className="special-charts">
-                    <div className="charts bar-rolling">
-                        <BarRollingCharts width={this.state.chartsWidth} height={this.state.chartsHeight} />
+                    <div className="row">
+                        <div className="charts bar-rolling">
+                            <BarRollingCharts width={this.state.chartsWidth} height={this.state.chartsHeight} />
+                        </div>
+                        <div className="charts bar-rolling-two">
+                            <BarRollingTwoAxisCharts width={this.state.chartsWidth} height={this.state.chartsHeight} />
+                        </div>
+                        <div className="charts">
+                            <PieGaugeCharts width={this.state.chartsWidth} height={this.state.chartsHeight} />
+                        </div>
                     </div>
-                    <div className="charts bar-rolling-two">
-                        <BarRollingTwoAxisCharts width={this.state.chartsWidth} height={this.state.chartsHeight} />
-                    </div>
-                    <div className="charts">
-                        <MapScreenOneCharts width="950px" height="800px" />
+                    <div className="row">
+                        <div className="charts">
+                            <MapScreenOneCharts width="950px" height="800px" />
+                        </div>
                     </div>
                 </section>
             </div>

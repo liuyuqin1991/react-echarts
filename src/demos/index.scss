@@ -8,11 +8,13 @@ body {
     border-top: 1px solid #DDD;
 
     &.common {
-        padding: 20px;
+        padding: 20px 0;
+        margin: 0 20px;
     }
 
     &.special {
-        padding: 20px;
+        padding: 20px 0;
+        margin: 0 20px;
     }
 }
 
@@ -44,6 +46,12 @@ body {
         flex-direction: column;
         justify-content: flex-start;
         padding-bottom: 50px;
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
 
         .charts {
             padding: 0 20px;
