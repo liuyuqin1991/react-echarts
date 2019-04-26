@@ -231,6 +231,7 @@ class MapScreenOneCharts extends BaseComponent<Props, State> {
     render() {
         return (
             <div>
+                <div className="title">特殊图表-大屏地图-样式1</div>
                 <div className="map-screen-one">
                     <div className="box">
                         <div className="ring inner-ring"></div>

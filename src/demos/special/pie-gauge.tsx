@@ -7,15 +7,31 @@ interface Props {
     height?: string
 }
 
-class PieGaugeCharts extends BaseComponent<Props> {
+interface State {
+    pieData: Array<{ name: string, percentage: number }>
+}
+
+class PieGaugeCharts extends BaseComponent<Props, State> {
+
 
 
     constructor(props: Props) {
         super(props);
+        this.state = {
+            pieData: [
+                { name: "访问量", percentage: 0.1 }
+            ]
+        }
     }
 
     componentDidMount(): void {
-        this.createEcharts();
+        setInterval(() => {
+            this.state.pieData[0].percentage = Math.random();
+            this.setState({
+                pieData: this.state.pieData
+            });
+            this.createEcharts();
+        }, 1500)
     }
 
 
@@ -32,38 +48,27 @@ class PieGaugeCharts extends BaseComponent<Props> {
             },
             series: [
                 {
-                    name: '饼状图名称',
+                    name: '背景图',
                     type: 'pie',
                     radius: ['50%', '75%'],
                     startAngle: 228,
+                    z: 3,
                     data: [
                         {
-                            value: 10,
-                            name: '真实数据',
+                            value: 1,
+                            name: '背景',
                             label: {
-                                show: true,
-                                position: 'center',
-                                formatter: [
-                                    '{a|全国数据}',
-                                    '{b|234}'
-                                ].join('\n\n'),
-                                rich: {
-                                    a: {
-                                        color: '#FFF',
-                                        fontSize: 16,
-                                    },
-                                    b: {
-                                        color: '#FFF',
-                                        fontSize: 50,
-                                    }
-                                }
+                                show: false,
+                            },
+                            labelLine: {
+                                show: false,
                             },
                             itemStyle: {
                                 color: '#385783'
                             }
                         },
                         {
-                            value: 10 * 0.3,
+                            value: 0.3,
                             name: '背景2',
                             itemStyle: {
                                 color: '#131233'
@@ -72,34 +77,76 @@ class PieGaugeCharts extends BaseComponent<Props> {
                     ]
                 },
                 {
+                    name: this.state.pieData[0].name,
+                    type: 'pie',
+                    radius: ['48%', '77%'],
+                    startAngle: 228,
+                    z: 3,
+                    data: [
+                        {
+                            value: 1 * this.state.pieData[0].percentage,
+                            name: '真实数据',
+                            label: {
+                                show: true,
+                                position: 'center',
+                                formatter: [
+                                    '{a|全国数据}',
+                                    '{b|' + (this.state.pieData[0].percentage * 100).toFixed(1) + '%}'
+                                ].join('\n\n'),
+                                rich: {
+                                    a: {
+                                        color: '#FFF',
+                                        fontSize: 16,
+                                    },
+                                    b: {
+                                        color: '#FFF',
+                                        fontSize: 35,
+                                    }
+                                }
+                            },
+                            itemStyle: {
+                                color: '#33AECC'
+                            }
+                        },
+                        {
+                            value: 1 * (1.3 - this.state.pieData[0].percentage),
+                            name: '背景2',
+                            itemStyle: {
+                                color: 'transparent'
+                            }
+                        },
+                    ]
+                },
+                {
                     type: 'graph',
                     layout: 'circular',
                     data: this.createNodes(26),
-                    symbolSize: 5,
+                    silent: true,
                     itemStyle: {
                         color: '#77A0DD'
+                    },
+                    emphasis: {
+                        label: {
+                            show: false
+                        }
                     },
                     lineStyle: {
                         color: '#131233'
                     },
                     width: '42%',
                     height: '42%',
-                    animation: false,
-                    edges: this.createEdges(26).map(function (e) {
-                        return {
-                            source: e[0],
-                            target: e[1]
-                        };
-                    })
+                    animationDurationUpdate: 1500
                 }
             ]
         };
         return option;
     }
 
+
     createNodes(count: number) {
         let nodes = [];
         for (let i = 0; i < count; i++) {
+            //隐藏缺口圆点
             if (i >= 4 && i <= 8) {
                 nodes.push({
                     name: i,
@@ -107,24 +154,45 @@ class PieGaugeCharts extends BaseComponent<Props> {
                 });
             }
             else {
-                nodes.push({
-                    name: i,
-                    symbolSize: 5
-                });
+                //因为关系图从3点位置顺时针打点，缺口在下方，总计26个点，隐藏的有5个点，显示的有21个点，计算得0-4的点占19%，其他占比81%
+                let lightPoint = Math.ceil(21 * this.state.pieData[0].percentage)
+                if (this.state.pieData[0].percentage <= 0.81) {
+                    if (i > 4 && i <= 8 + lightPoint) {
+                        nodes.push({
+                            name: i,
+                            symbolSize: 8,
+                            itemStyle: {
+                                color: '#33AECC'
+                            }
+                        });
+                    }
+                    else {
+                        nodes.push({
+                            name: i,
+                            symbolSize: 5
+                        });
+                    }
+                }
+                else {
+                    if ((i > 4 && i <= 25) || (i >= 0 && i < lightPoint - 17)) {
+                        nodes.push({
+                            name: i,
+                            symbolSize: 8,
+                            itemStyle: {
+                                color: '#33AECC'
+                            }
+                        });
+                    }
+                    else {
+                        nodes.push({
+                            name: i,
+                            symbolSize: 5
+                        });
+                    }
+                }
             }
         }
         return nodes;
-    }
-
-    createEdges(count: number) {
-        let edges = [];
-        if (count === 2) {
-            return [[0, 1]];
-        }
-        for (var i = 0; i < count; i++) {
-            edges.push([i, (i + 1) % count]);
-        }
-        return edges;
     }
 
     //创建图表
