@@ -2,7 +2,7 @@
 
 > react封装echarts的图表组件库，使用ES6+typescript
 
-## 示例
+## 示例-基本图表（可使用该组件库）
 
 ### 折线图
 
@@ -15,18 +15,6 @@
 * 基本柱状图
 
 ![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-common.png)
-
-* 翻转柱状图
-
-![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-rolling.png)
-
-* 自动滚动翻转柱状图（单axis）(特殊图表，组件不适用，单独开发)
-
-![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-automatic-rolling-one-axis.gif)
-
-* 自动滚动翻转柱状图（双axis）(特殊图表，组件不适用，单独开发)
-
-![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-automatic-rolling-two-axis.gif)
 
 ### 饼图
 
@@ -49,6 +37,28 @@
 * 基本散点图
 
 ![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/scatter-common.png)
+
+## 其他示例-特殊图表（某些可使用该组件库，某些不可使用）
+
+### 翻转柱状图（特殊图表，组件适用）
+
+![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-rolling.png)
+
+### 自动滚动翻转柱状图（单axis）(特殊图表，组件不适用，单独开发)
+
+![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-automatic-rolling-one-axis.gif)
+
+### 自动滚动翻转柱状图（双axis）(特殊图表，组件不适用，单独开发)
+
+![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-automatic-rolling-two-axis.gif)
+
+### 类仪表盘饼图（特殊图表，组件不适用，单独开发）
+
+![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/pie-gauge.gif)
+
+### 大屏地图-样式1（特殊图表，组件适用）
+
+![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/map-screen-one.gif)
 
 
 ## 安装
