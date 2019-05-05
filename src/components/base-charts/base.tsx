@@ -93,9 +93,7 @@ class BaseCharts extends BaseComponent<BaseChartsProp> {
         charts.setOption(option, true);
         //控制台打印配置，右键存储到全局对象，使用JSON.stringify()复制文本到VS code格式化后，粘贴到下面的网址进行调试：http://echarts.baidu.com/examples/editor.html?c=line-stack
         //注意修改网站图表div的背景色
-        window.onresize = function () {
-            charts.resize();
-        };
+        window.addEventListener('resize', () => charts.resize());
     }
 
     render() {
