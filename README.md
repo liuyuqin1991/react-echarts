@@ -1,6 +1,6 @@
 # react-echarts
 
-> react封装echarts的图表组件库，使用ES6+typescript（感悟：echarts这玩意，强大的，只有想不到的 ，没有做不到的）
+> react封装echarts的图表组件库，使用ES6+typescript。因目前没多少人使用，所以每次更新暂时不向下兼容，请参考当前版本的demo实例进行开发（感悟：echarts这玩意，强大的，只有想不到的 ，没有做不到的）
 
 ## 示例-基本图表（可使用该组件库）
 
