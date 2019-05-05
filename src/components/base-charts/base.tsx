@@ -3,8 +3,6 @@ import React from 'react';
 const Echarts = require('echarts');
 
 interface BaseChartsProp {
-    //必选（通用）：id，charts组件id，必须值
-    id: string
     //可选（通用）：图表的宽和高，不填默认长宽100%
     width?: string
     height?: string
@@ -23,6 +21,11 @@ interface BaseChartsProp {
 
 class BaseCharts extends BaseComponent<BaseChartsProp> {
 
+    //初始化的Echarts对象
+    echarts: any
+    //系统配置的document.getElementById()
+    canvas: HTMLDivElement
+
     constructor(props: BaseChartsProp) {
         super(props);
     }
@@ -36,19 +39,20 @@ class BaseCharts extends BaseComponent<BaseChartsProp> {
         return true;
     }
 
+    componentWillUnmount(): void {
+        window.removeEventListener('resize', this.listenerFunc);
+    }
+
     //创建图表
     createEcharts() {
-        const { id } = this.props;
-        if (!!id) {
-            let charts = Echarts.init(document.getElementById(id));
-            let option = this.setSeriesCallBack();
-            //为地图图表注册地图geo json数据
-            if (!!this.props.regionJson) {
-                Echarts.registerMap(option.series[0].map, this.props.regionJson);
-            }
-            this.setCommonConfig(option);
-            this.renderEcharts(charts, option);
+        this.echarts = Echarts.init(this.canvas);
+        let option = this.setSeriesCallBack();
+        //为地图图表注册地图geo json数据
+        if (!!this.props.regionJson) {
+            Echarts.registerMap(option.series[0].map, this.props.regionJson);
         }
+        this.setCommonConfig(option);
+        this.renderEcharts(option);
     }
 
     //series个性化配置回调函数
@@ -84,22 +88,28 @@ class BaseCharts extends BaseComponent<BaseChartsProp> {
         }
     }
 
+    listenerFunc(): void {
+        if (!!this.echarts) {
+            this.echarts.resize();
+        }
+    }
+
 
     //通用化配置，渲染图表
-    renderEcharts(charts: any, option: any): void {
+    renderEcharts(option: any): void {
         if (option.hasOwnProperty("mapJson")) {
             delete option.mapJson;
         }
-        charts.setOption(option, true);
+        this.echarts.setOption(option, true);
         //控制台打印配置，右键存储到全局对象，使用JSON.stringify()复制文本到VS code格式化后，粘贴到下面的网址进行调试：http://echarts.baidu.com/examples/editor.html?c=line-stack
         //注意修改网站图表div的背景色
-        window.addEventListener('resize', () => charts.resize());
+        window.addEventListener('resize', this.listenerFunc);
     }
 
     render() {
-        let { id, width, height } = this.props;
+        let { width, height } = this.props;
         return (
-            <div id={id} style={{ width: width || "100%", height: height || "100%", }}></div>
+            <div ref={ref => this.canvas = ref} style={{ width: width || "100%", height: height || "100%", }}></div>
         );
     }
 }

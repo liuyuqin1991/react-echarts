@@ -135,18 +135,18 @@ class CommonScatter extends BaseComponent<Props, State> {
         return (
             <div className="common-scatter">
                 <div className="title">散点图（无option配置）</div>
-                <ScatterCharts id="scatterCharts-easy"
+                <ScatterCharts
                     width={this.props.width}
                     height={this.props.height}
                     seriesData={this.state.scatterChartData} />
                 <div className="title">散点图（除series外的静态option配置）</div>
-                <ScatterCharts id="scatterCharts-normal"
+                <ScatterCharts
                     width={this.props.width}
                     height={this.props.height}
                     setOption={this.setScatterNormalOption.bind(this)}
                     seriesData={this.state.scatterChartData} />
                 <div className="title">散点图（包含series的option配置）</div>
-                <ScatterCharts id="scatterCharts-difficult"
+                <ScatterCharts
                     width={this.props.width}
                     height={this.props.height}
                     setOption={this.setScatterDifficultOption.bind(this)}

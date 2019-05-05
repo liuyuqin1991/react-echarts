@@ -102,20 +102,20 @@ class CommonBar extends BaseComponent<Props, State> {
         return (
             <div className="common-bar">
                 <div className="title">基本图表-柱状图（无option配置）</div>
-                <BarCharts id="barCharts-easy"
+                <BarCharts
                     width={this.props.width}
                     height={this.props.height}
                     seriesData={this.state.commonChartsData}
                     xAxisData={this.state.commonXAxisData} />
                 <div className="title">基本图表-（除series的静态option配置）</div>
-                <BarCharts id="barCharts-normal"
+                <BarCharts
                     width={this.props.width}
                     height={this.props.height}
                     setOption={this.setBarNormalOption.bind(this)}
                     seriesData={this.state.commonChartsData}
                     xAxisData={this.state.commonXAxisData} />
                 <div className="title">基本图表-（包含series的option配置）</div>
-                <BarCharts id="barCharts-difficult"
+                <BarCharts
                     width={this.props.width}
                     height={this.props.height}
                     tooltipFormatter={this.setAxisTooltipFormatter.bind(this)}
@@ -123,7 +123,7 @@ class CommonBar extends BaseComponent<Props, State> {
                     seriesData={this.state.commonChartsData}
                     xAxisData={this.state.commonXAxisData} />
                 <div className="title">基本图表-翻转柱状图（包含series的option配置）</div>
-                <BarCharts id="barCharts-reverse"
+                <BarCharts
                     width={this.props.width}
                     height={this.props.height}
                     isReverse={true}

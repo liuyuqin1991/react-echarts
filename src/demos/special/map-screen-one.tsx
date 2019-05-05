@@ -237,7 +237,7 @@ class MapScreenOneCharts extends BaseComponent<Props, State> {
                         <div className="ring inner-ring"></div>
                         <div className="ring outer-ring"></div>
                     </div>
-                    <MapCharts id="map-screen-one"
+                    <MapCharts
                         className="map-screen-one-charts"
                         width={this.props.width}
                         height={this.props.height}

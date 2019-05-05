@@ -71,20 +71,20 @@ class CommonLine extends BaseComponent<Props, State> {
         return (
             <div className="common-line">
                 <div className="title">折线图（无option配置）</div>
-                <LineCharts id="lineCharts-easy"
+                <LineCharts
                     width={this.props.width}
                     height={this.props.height}
                     seriesData={this.state.commonChartsData}
                     xAxisData={this.state.commonXAxisData} />
                 <div className="title">折线图（除series的静态option配置）</div>
-                <LineCharts id="lineCharts-normal"
+                <LineCharts
                     width={this.props.width}
                     height={this.props.height}
                     setOption={this.setLineNormalOption.bind(this)}
                     seriesData={this.state.commonChartsData}
                     xAxisData={this.state.commonXAxisData} />
                 <div className="title">折线图（包含series的option配置）</div>
-                <LineCharts id="lineCharts-difficult"
+                <LineCharts
                     width={this.props.width}
                     height={this.props.height}
                     tooltipFormatter={this.setAxisTooltipFormatter.bind(this)}

@@ -33,12 +33,12 @@ class CommonPie extends BaseComponent<Props, State> {
         return (
             <div className="common-pie">
                 <div className="title">饼状图（无option配置）</div>
-                <PieCharts id="pieCharts-easy"
+                <PieCharts
                     width={this.props.width}
                     height={this.props.height}
                     seriesData={this.state.pieChartsData} />
                 <div className="title">饼状图（除series的静态option配置）</div>
-                <PieCharts id="pieCharts-normal"
+                <PieCharts
                     width={this.props.width}
                     height={this.props.height}
                     setOption={this.setPieNormalOption.bind(this)}

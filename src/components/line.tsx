@@ -60,10 +60,9 @@ class LineCharts extends BaseComponent<LineChartsProp> {
     }
 
     render() {
-        let { id, width, height, title, subTitle, tooltipFormatter } = this.props;
+        let { width, height, title, subTitle, tooltipFormatter } = this.props;
         return (
             <BaseCharts
-                id={id}
                 width={width}
                 height={height}
                 title={title}

@@ -99,21 +99,21 @@ class CommonMap extends BaseComponent<Props, State> {
         return (
             <div className="common-map">
                 <div className="title">全国地图（无option配置）</div>
-                <MapCharts id="mapChartsByChina-easy"
+                <MapCharts
                     width={this.props.width}
                     height={this.props.height}
                     regionType="country"
                     regionName="中国"
                     seriesData={this.state.mapChartsDataByChina} />
                 <div className="title">湖北省地图（无option配置）</div>
-                <MapCharts id="mapChartsByHubei-easy"
+                <MapCharts
                     width={this.props.width}
                     height={this.props.height}
                     regionType="province"
                     regionName="湖北"
                     seriesData={this.state.mapChartsDataByHubei} />
                 <div className="title">全国地图（除series的option静态配置）</div>
-                <MapCharts id="mapChartsByChina-normal"
+                <MapCharts
                     width={this.props.width}
                     height={this.props.height}
                     setOption={this.setMapNormalOption.bind(this)}
@@ -121,7 +121,7 @@ class CommonMap extends BaseComponent<Props, State> {
                     regionName="中国"
                     seriesData={this.state.mapChartsDataByChina} />
                 <div className="title">全国地图（包含加载地图后对option再配置）</div>
-                <MapCharts id="mapChartsByChina-difficult"
+                <MapCharts
                     width={this.props.width}
                     height={this.props.height}
                     setOption={this.setMapNormalOption.bind(this)}
