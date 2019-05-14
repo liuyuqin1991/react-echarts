@@ -15,8 +15,10 @@ interface BaseChartsProp {
     setOption?: Function
     //可选（通用），图表的提示回调
     tooltipFormatter?: Function
-    //可选（地图专用），地区名称的GEO Json文件
-    regionJson?: string
+    //可选（地图专用）：切换地图（组件内部方法）
+    onChangeRegion?: Function
+    //可选（地图专用）：加载地图后操作option事件（用户自定义方法）
+    setOptionAfterLoadMap?: Function
 }
 
 class BaseCharts extends BaseComponent<BaseChartsProp> {
@@ -48,11 +50,22 @@ class BaseCharts extends BaseComponent<BaseChartsProp> {
         this.echarts = Echarts.init(this.canvas);
         let option = this.setSeriesCallBack();
         //为地图图表注册地图geo json数据
-        if (!!this.props.regionJson) {
-            Echarts.registerMap(option.series[0].map, this.props.regionJson);
+        if (this.props.onChangeRegion && this.props.onChangeRegion instanceof Function) {
+            const callback = (regionName: string, mapJson: any) => {
+                Echarts.registerMap(regionName, mapJson);
+                //设置加载地图后的个性化回调方法
+                if (this.props.setOptionAfterLoadMap && this.props.setOptionAfterLoadMap instanceof Function) {
+                    option = this.props.setOptionAfterLoadMap(option, mapJson);
+                }
+                this.setCommonConfig(option);
+                this.renderEcharts(option);
+            };
+            this.props.onChangeRegion(callback);
         }
-        this.setCommonConfig(option);
-        this.renderEcharts(option);
+        else {
+            this.setCommonConfig(option);
+            this.renderEcharts(option);
+        }
     }
 
     //series个性化配置回调函数

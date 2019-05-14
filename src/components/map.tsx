@@ -28,28 +28,25 @@ class MapCharts extends BaseComponent<MapChartsProp, MapChartsState> {
         };
     }
 
-    componentWillMount() {
-        let { regionType, regionName } = this.props;
+    onChangeRegion(callback: Function) {
         //加载地图类型及地图geoJson数据
-        switch (regionType) {
+        switch (this.props.regionType) {
             case "city": {
                 break;
             }
             case "province": {
-                if (!!regionName) {
-                    import('../components/map-json/provinceJson/' + regionName + '.json').then(mapJson => {
-                        this.setState({
-                            regionJson: mapJson
-                        })
-                    });
-                    break;
-                }
+                import('../components/map-json/provinceJson/' + this.props.regionName + '.json').then(mapJson => {
+                    if (callback && callback instanceof Function) {
+                        callback(this.props.regionName, mapJson);
+                    }
+                });
+                break;
             }
             default: {
                 import('../components/map-json/countryJson/china.json').then(mapJson => {
-                    this.setState({
-                        regionJson: mapJson
-                    })
+                    if (callback && callback instanceof Function) {
+                        callback(this.props.regionName, mapJson);
+                    }
                 });
                 break;
             }
@@ -104,10 +101,6 @@ class MapCharts extends BaseComponent<MapChartsProp, MapChartsState> {
         }
         option.visualMap.min = min;
         option.visualMap.max = max;
-        //设置加载地图后的个性化回调方法
-        if (setOptionAfterLoadMap && setOptionAfterLoadMap instanceof Function) {
-            option = setOptionAfterLoadMap(option, this.state.regionJson);
-        }
         return option;
     }
 
@@ -121,7 +114,8 @@ class MapCharts extends BaseComponent<MapChartsProp, MapChartsState> {
                 subTitle={subTitle}
                 setSeriesDataFunc={this.setSeriesDataFunc.bind(this)}
                 tooltipFormatter={tooltipFormatter}
-                regionJson={this.state.regionJson}
+                onChangeRegion={this.onChangeRegion.bind(this)}
+                setOptionAfterLoadMap={this.props.setOptionAfterLoadMap}
             />
         );
     }
