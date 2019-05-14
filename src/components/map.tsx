@@ -10,7 +10,7 @@ interface MapChartsProp extends BaseChartsProp {
     //必须（地图专用），地区类型，可选类型为："country","province","city"，对应为：国家，省份，城市
     regionType: string
     //可选（地图专用）：地区名称，为地区类型下对应的省市县名称（PS：地区名称必须与地区json文件名相同），以中国为例：
-    //展示中国地图：regionType："china"，regionName:"中国"
+    //展示中国地图：regionType："country"，regionName:"中国"
     //展示省份地图：regionType:"province"，regionName:"北京"
     regionName?: string
 }
@@ -20,6 +20,45 @@ interface MapChartsState {
 }
 
 class MapCharts extends BaseComponent<MapChartsProp, MapChartsState> {
+
+    //地图left和top的偏移量：因为某些省份显示不居中，需要根据json一个个控制省份居中
+    mapOffset: any = {
+        "中国": { left: "10%", top: "15%" },
+        "北京": { left: "18%", top: "10%" },
+        "上海": { left: "15%", top: "10%" },
+        "天津": { left: "23%", top: "12%" },
+        "重庆": { left: "18%", top: "12%" },
+        "河北": { left: "27%", top: "12%" },
+        "山西": { left: "30%", top: "12%" },
+        "河南": { left: "15%", top: "12%" },
+        "辽宁": { left: "10%", top: "12%" },
+        "吉林": { left: "10%", top: "20%" },
+        "黑龙江": { left: "15%", top: "12%" },
+        "内蒙古": { left: "10%", top: "12%" },
+        "江苏": { left: "15%", top: "12%" },
+        "山东": { left: "10%", top: "15%" },
+        "安徽": { left: "25%", top: "12%" },
+        "浙江": { left: "23%", top: "12%" },
+        "福建": { left: "23%", top: "12%" },
+        "湖北": { left: "10%", top: "13%" },
+        "湖南": { left: "23%", top: "12%" },
+        "广东": { left: "15%", top: "12%" },
+        "广西": { left: "12%", top: "12%" },
+        "江西": { left: "30%", top: "12%" },
+        "四川": { left: "15%", top: "12%" },
+        "海南": { left: "35%", top: "12%" },
+        "贵州": { left: "15%", top: "12%" },
+        "云南": { left: "25%", top: "12%" },
+        "西藏": { left: "10%", top: "25%" },
+        "陕西": { left: "27%", top: "15%" },
+        "甘肃": { left: "10%", top: "12%" },
+        "青海": { left: "10%", top: "20%" },
+        "宁夏": { left: "25%", top: "12%" },
+        "新疆": { left: "15%", top: "12%" },
+        "台湾": { left: "30%", top: "12%" },
+        "香港": { left: "12%", top: "12%" },
+        "澳门": { left: "30%", top: "12%" },
+    };
 
     constructor(props: MapChartsProp) {
         super(props);
@@ -87,6 +126,8 @@ class MapCharts extends BaseComponent<MapChartsProp, MapChartsState> {
                     option.series[i].name = seriesData[i].name;
                     option.series[i].data = seriesData[i].data;
                     option.series[i].map = regionName;
+                    option.series[i].left = this.mapOffset[regionName].left;
+                    option.series[i].top = this.mapOffset[regionName].top;
                 }
                 //默认
                 else {
@@ -95,6 +136,8 @@ class MapCharts extends BaseComponent<MapChartsProp, MapChartsState> {
                         name: seriesData[i].name,
                         data: seriesData[i].data,
                         map: regionName,
+                        left: this.mapOffset[regionName].left,
+                        top: this.mapOffset[regionName].top
                     })
                 }
             }
