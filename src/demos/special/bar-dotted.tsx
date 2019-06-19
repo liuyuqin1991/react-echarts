@@ -32,9 +32,9 @@ class BarDottedCharts extends BaseComponent<Props, State> {
 
 
     setOption() {
-        let option: any = Object.assign({}, templateBar);;
+        let option: any = Object.assign({}, templateBar);
         option.series = [{
-            name: 'line',
+            name: this.state.commonChartsData[0].name,
             type: 'bar',
             barWidth: 10,
             itemStyle: {
@@ -45,11 +45,11 @@ class BarDottedCharts extends BaseComponent<Props, State> {
                     x2: 0,
                     y2: 1,
                     colorStops: [{
-                        offset: 0, color: 'rgba(0,191,255,1)' // 0% 处的颜色
+                        offset: 0, color: 'rgba(65,105,225,1)' // 0% 处的颜色
                     }, {
-                        offset: 0.5, color: 'rgba(0,191,255,0.5)' // 100% 处的颜色
+                        offset: 0.5, color: 'rgba(65,105,225,0.7)' // 100% 处的颜色
                     }, {
-                        offset: 1, color: 'rgba(0,191,255,0.1)' // 100% 处的颜色 
+                        offset: 1, color: 'rgba(65,105,225,0.1)' // 100% 处的颜色 
                     }],
                     global: false // 缺省为 false
                 }
@@ -72,6 +72,15 @@ class BarDottedCharts extends BaseComponent<Props, State> {
         return option;
     }
 
+    setAxisTooltipFormatter(series: any) {
+        let _html = "";
+        if (series && series.length > 0) {
+            _html += "<span class='tooltip name'>" + series[0].name + "</span>" + "：" + "<br>" +
+                "<span class='tooltip value'>" + series[0].seriesName + "：" + series[0].value + "</span><br>";
+        }
+        return _html;
+    }
+
     render() {
         return (
             <div>
@@ -79,6 +88,7 @@ class BarDottedCharts extends BaseComponent<Props, State> {
                 <BarCharts
                     width={this.props.width}
                     height={this.props.height}
+                    tooltipFormatter={this.setAxisTooltipFormatter.bind(this)}
                     setOption={this.setOption.bind(this)}
                     seriesData={this.state.commonChartsData}
                     xAxisData={this.state.commonXAxisData} />
