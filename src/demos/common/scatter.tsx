@@ -145,7 +145,7 @@ class CommonScatter extends BaseComponent<Props, State> {
                     height={this.props.height}
                     setOption={this.setScatterNormalOption.bind(this)}
                     seriesData={this.state.scatterChartData} />
-                <div className="title">散点图（包含series的option配置）</div>
+                <div className="title">散点图（包含series的动态option配置）</div>
                 <ScatterCharts
                     width={this.props.width}
                     height={this.props.height}

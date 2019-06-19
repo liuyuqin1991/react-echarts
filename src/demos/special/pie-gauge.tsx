@@ -96,11 +96,11 @@ class PieGaugeCharts extends BaseComponent<Props, State> {
                                 rich: {
                                     a: {
                                         color: '#FFF',
-                                        fontSize: 16,
+                                        fontSize: 14,
                                     },
                                     b: {
                                         color: '#FFF',
-                                        fontSize: 35,
+                                        fontSize: 30,
                                     }
                                 }
                             },

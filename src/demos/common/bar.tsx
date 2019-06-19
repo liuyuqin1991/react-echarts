@@ -37,7 +37,7 @@ class CommonBar extends BaseComponent<Props, State> {
     }
 
     setBarDifficultOption(): any {
-        let option: any = templateBar;
+        let option: any = Object.assign({}, templateBar);
         let series = [];
         const itemColor = ['#0073E6', '#FC5554', '#FFB45A', '#6B6BB9'];
         for (let i = 0; i < this.state.commonChartsData.length; i++) {
@@ -56,7 +56,7 @@ class CommonBar extends BaseComponent<Props, State> {
     }
 
     setBarReverseOption(): any {
-        let option: any = templateBar;
+        let option: any = Object.assign({}, templateBar);
         let series = [];
         const itemColor = ['#0073E6', '#FC5554', '#FFB45A', '#6B6BB9'];
         for (let i = 0; i < this.state.reverseChartsData.length; i++) {
@@ -114,7 +114,7 @@ class CommonBar extends BaseComponent<Props, State> {
                     setOption={this.setBarNormalOption.bind(this)}
                     seriesData={this.state.commonChartsData}
                     xAxisData={this.state.commonXAxisData} />
-                <div className="title">基本图表-（包含series的option配置）</div>
+                <div className="title">基本图表-（包含series的动态option配置）</div>
                 <BarCharts
                     width={this.props.width}
                     height={this.props.height}

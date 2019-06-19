@@ -120,7 +120,7 @@ class CommonMap extends BaseComponent<Props, State> {
                     regionType="country"
                     regionName="中国"
                     seriesData={this.state.mapChartsDataByChina} />
-                <div className="title">全国地图（包含加载地图后对option再配置）</div>
+                <div className="title">全国地图（包含加载地图后对option动态再配置）</div>
                 <MapCharts
                     width={this.props.width}
                     height={this.props.height}
