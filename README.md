@@ -52,6 +52,10 @@
 
 ![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-automatic-rolling-two-axis.gif)
 
+### 特殊图表-渐变虚线柱状图(特殊图表，组件适用)
+
+![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-dotted.png)
+
 ### 类仪表盘饼图（特殊图表，组件不适用，单独开发）
 
 ![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/pie-gauge.gif)
