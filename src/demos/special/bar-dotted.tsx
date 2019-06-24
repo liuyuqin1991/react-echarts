@@ -45,11 +45,11 @@ class BarDottedCharts extends BaseComponent<Props, State> {
                     x2: 0,
                     y2: 1,
                     colorStops: [{
-                        offset: 0, color: 'rgba(65,105,225,1)' // 0% 处的颜色
+                        offset: 0, color: 'rgba(51, 153, 255,1)' // 0% 处的颜色
                     }, {
-                        offset: 0.5, color: 'rgba(65,105,225,0.7)' // 100% 处的颜色
+                        offset: 0.5, color: 'rgba(51, 153, 255,0.7)' // 100% 处的颜色
                     }, {
-                        offset: 1, color: 'rgba(65,105,225,0.1)' // 100% 处的颜色 
+                        offset: 1, color: 'rgba(51, 153, 255,0.1)' // 100% 处的颜色 
                     }],
                     global: false // 缺省为 false
                 }
