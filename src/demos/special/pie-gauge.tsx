@@ -105,7 +105,21 @@ class PieGaugeCharts extends BaseComponent<Props, State> {
                                 }
                             },
                             itemStyle: {
-                                color: '#33AECC'
+                                color: {
+                                    type: 'linear',
+                                    x: 0,
+                                    y: 0,
+                                    x2: 1,
+                                    y2: 1,
+                                    colorStops: [{
+                                        offset: 0, color: 'rgba(102, 255, 255,0.1)'
+                                    }, {
+                                        offset: 0.5, color: 'rgba(102, 255, 255,1)'
+                                    }, {
+                                        offset: 1, color: 'rgba(102, 255, 255,0.1)'
+                                    }],
+                                    global: false // 缺省为 false
+                                }
                             }
                         },
                         {

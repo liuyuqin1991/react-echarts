@@ -83,7 +83,7 @@ class BarDottedCharts extends BaseComponent<Props, State> {
 
     render() {
         return (
-            <div>
+            <>
                 <div className="title">{this.chratsTitle}</div>
                 <BarCharts
                     width={this.props.width}
@@ -92,7 +92,7 @@ class BarDottedCharts extends BaseComponent<Props, State> {
                     setOption={this.setOption.bind(this)}
                     seriesData={this.state.commonChartsData}
                     xAxisData={this.state.commonXAxisData} />
-            </div>
+            </>
 
         );
     }

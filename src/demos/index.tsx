@@ -13,6 +13,7 @@ import BarRollingTwoAxisCharts from './special/bar-rolling-two-axis';
 import MapScreenOneCharts from './special/map-screen-one';
 import PieGaugeCharts from './special/pie-gauge';
 import BarDottedCharts from './special/bar-dotted';
+import PieDottedCharts from './special/pie-dotted';
 
 import './index.scss';
 
@@ -85,6 +86,11 @@ class Demos extends BaseComponent<Props, State> {
                         </div>
                         <div className="charts">
                             <BarDottedCharts width={this.state.chartsWidth} height={this.state.chartsHeight} />
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="charts">
+                            <PieDottedCharts width={this.state.chartsWidth} height={this.state.chartsHeight} />
                         </div>
                     </div>
                     <div className="row">
