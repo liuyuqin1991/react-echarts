@@ -56,6 +56,10 @@
 
 ![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-dotted.png)
 
+### 特殊图表-侧面展现进度条 (特殊图表，组件不适用，单独开发)
+
+![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/bar-side-progress.png)
+
 ### 类仪表盘饼图（特殊图表，组件不适用，单独开发）
 
 ![](https://github.com/liuyuqin1991/react-echarts/blob/master/md-images/pie-gauge.gif)
