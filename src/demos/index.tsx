@@ -14,6 +14,7 @@ import MapScreenOneCharts from './special/map-screen-one';
 import PieGaugeCharts from './special/pie-gauge';
 import BarDottedCharts from './special/bar-dotted';
 import PieDottedCharts from './special/pie-dotted';
+import BarSideProgressCharts from './special/bar-side-progress';
 
 import './index.scss';
 
@@ -86,6 +87,19 @@ class Demos extends BaseComponent<Props, State> {
                         </div>
                         <div className="charts">
                             <BarDottedCharts width={this.state.chartsWidth} height={this.state.chartsHeight} />
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="charts">
+                            <BarSideProgressCharts
+                                width="530px"
+                                height="320px"
+                                reverseChartsData={[{ name: "在售SKU", data: [23, 30, 60, 90, 100] }]}
+                                reverseYAxisData={['动销SKU数', '点击SKU数', '曝光SKU数', '7天有货SKU数', '在售SKU数']}
+                                exposureProgress='65%'
+                                clickProgress='40%'
+                                buyProgress='20%'
+                                movesaleProgress='10%' />
                         </div>
                     </div>
                     <div className="row">

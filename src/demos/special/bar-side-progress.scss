@@ -1,0 +1,125 @@
+.progress {
+    position: absolute;
+    right: 0;
+    bottom: 18px;
+    width: 80px;
+    height: 246px;
+    display: flex;
+    flex-direction: row;
+    font-size: 10px;
+
+    .item {
+        width: 100%;
+        height: 82px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        &.exposure {
+            border-left: 1px solid #009B88;
+            color: rgba(0, 150, 132, 1);
+            background: rgba(95, 191, 179, 0.2);
+            height: 135px;
+
+            &:after {
+                content: "▲";
+                position: absolute;
+                font-size: 13px;
+                color: #009B88;
+                bottom: -5px;
+                left: -7px;
+                transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                /* IE 9 */
+                -moz-transform: rotate(180deg);
+                /* Firefox */
+                -webkit-transform: rotate(180deg);
+                /* Safari 和 Chrome */
+                -o-transform: rotate(180deg);
+            }
+        }
+
+        &.click {
+            border-left: 1px solid #FFBC1D;
+            color: rgba(184, 108, 0, 1);
+            background: rgba(255, 162, 29, 0.2);
+            height: 55px;
+
+            &:after {
+                content: "▲";
+                position: absolute;
+                font-size: 13px;
+                color: #FFBC1D;
+                bottom: -5px;
+                left: -7px;
+                transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                /* IE 9 */
+                -moz-transform: rotate(180deg);
+                /* Firefox */
+                -webkit-transform: rotate(180deg);
+                /* Safari 和 Chrome */
+                -o-transform: rotate(180deg);
+            }
+        }
+
+        &.buy {
+            border-left: 1px solid #2B64D4;
+            color: rgba(73, 130, 243, 1);
+            background: rgba(73, 130, 243, 0.2);
+            height: 55px;
+
+            &:after {
+                content: "▲";
+                position: absolute;
+                font-size: 13px;
+                color: #2B64D4;
+                bottom: -5px;
+                left: -7px;
+                transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                /* IE 9 */
+                -moz-transform: rotate(180deg);
+                /* Firefox */
+                -webkit-transform: rotate(180deg);
+                /* Safari 和 Chrome */
+                -o-transform: rotate(180deg);
+            }
+        }
+    }
+
+    .movesale {
+        width: 10px;
+        height: 245px;
+        background: rgba(253, 89, 89, 0.4);
+        border-right: 1px solid rgba(253, 89, 89, 1);
+        position: relative;
+
+        &:after {
+            content: "▲";
+            position: absolute;
+            font-size: 13px;
+            color: rgba(253, 89, 89, 1);
+            bottom: -5px;
+            right: -7px;
+            transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            /* IE 9 */
+            -moz-transform: rotate(180deg);
+            /* Firefox */
+            -webkit-transform: rotate(180deg);
+            /* Safari 和 Chrome */
+            -o-transform: rotate(180deg);
+        }
+    }
+
+    .movesale-label {
+        position: absolute;
+        left: 90px;
+        top: 90px;
+        width: 20px;
+        color: #FD5959;
+        text-align: center;
+    }
+}
