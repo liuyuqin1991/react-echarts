@@ -93,6 +93,11 @@ class BarSideProgressCharts extends BaseComponent<Props, States> {
             axisLabel: {
                 color: '#999999',
                 margin: 25,
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#F2F2F2'
+                }
             }
         };
         option.yAxis = {
